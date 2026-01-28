@@ -1,0 +1,85 @@
+/* Ruta: gestion_actividades/static/gestion_actividades/css/login.css */
+
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --primary: #80cbc4; /* Menta */
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --input-bg: #2d2d2d;
+    --border-color: #333;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+h2 { margin-bottom: 30px; font-weight: 300; }
+
+.form-group { margin-bottom: 20px; text-align: left; }
+
+label { display: block; margin-bottom: 5px; color: var(--text-muted); font-size: 0.9rem; }
+
+input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 10px;
+}
+
+.btn-login:hover { opacity: 0.9; }
+
+.error-msg {
+    background-color: rgba(255, 82, 82, 0.1);
+    color: #ff5252;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}

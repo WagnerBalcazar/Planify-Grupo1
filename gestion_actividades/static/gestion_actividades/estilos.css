@@ -1,0 +1,381 @@
+/* =========================================
+   ESTILOS.CSS - PLANIFY (VERSIÓN FINAL)
+   ========================================= */
+
+:root {
+    /* === TEMA MENTA (MODO CLARO) === */
+    --bg-app: #dcf2f1;
+    --card-bg: #ffffff;
+    --text-main: #2c4a52;
+    --text-muted: #607d8b;
+    --accent: #7fc8c6;
+    --btn-text: #ffffff;
+    --input-bg: #f7fdfd;
+    --border-color: #bce0e0;
+    --danger: #e57373;
+    --success: #2ecc71;
+    --gray-btn-bg: #eceff1;
+    --gray-btn-icon: #90a4ae;
+}
+
+[data-theme="dark"] {
+    /* === TEMA OSCURO === */
+    --bg-app: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #e0f2f1;
+    --text-muted: #b0bec5;
+    --accent: #64ffda;
+    --btn-text: #000000;
+    --input-bg: #2d2d2d;
+    --border-color: #444444;
+    --danger: #ff5252;
+    --success: #00e676;
+    --gray-btn-bg: #2d2d2d;
+    --gray-btn-icon: #b0bec5;
+}
+
+body {
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+}
+
+/* --- HEADER --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    height: 50px;
+}
+.header-controls { display: flex; gap: 15px; }
+.theme-toggle-btn, .logout-btn { background: none; border: none; color: var(--text-main); cursor: pointer; font-size: 1.2rem; }
+
+/* --- LAYOUT PRINCIPAL --- */
+.app-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: calc(100vh - 81px);
+    gap: 30px;
+    padding: 20px 40px;
+}
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+.sidebar {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Tarjeta Cerrada */
+.input-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+/* Tarjeta Abierta (Active) */
+.input-card.active {
+    border-left: 5px solid var(--accent);
+    z-index: 1000; /* Se superpone a todo */
+}
+
+/* Contenido del Formulario (Animación) */
+.form-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+    margin-top: 0;
+}
+
+/* Cuando se abre la tarjeta */
+.input-card.active .form-content {
+    max-height: 1500px;
+    opacity: 1;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    cursor: default;
+    overflow: visible !important; /* Permite ver el calendario */
+    padding-bottom: 50px;
+}
+
+/* Encabezado de la Tarjeta */
+.card-header-visible {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* Flechita giratoria */
+.toggle-icon {
+    transition: transform 0.3s;
+    margin-left: auto;
+}
+.input-card.active .toggle-icon { transform: rotate(180deg); color: var(--accent); }
+
+/* --- FORMULARIOS (Inputs y Botones) --- */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-main);
+    box-sizing: border-box;
+}
+
+.input-dinamico { display: none; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.btn-main { background: var(--text-main); color: var(--btn-text); border: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 100%; margin-top: 10px; cursor: pointer; }
+.btn-secondary { background: transparent; border: 1px solid var(--accent); color: var(--text-main); padding: 8px; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; }
+
+/* Emociones */
+.emociones-row { display: flex; justify-content: space-around; }
+.emo-btn { background: none; border: none; font-size: 1.8rem; cursor: pointer; transition: transform 0.2s; }
+.emo-btn:hover { transform: scale(1.2); }
+
+/* --- ÁREA DERECHA (MAIN CONTENT) --- */
+.content-area { flex: 1; background: rgba(255, 255, 255, 0.5); border-radius: 20px; padding: 30px; overflow-y: auto; }
+[data-theme="dark"] .content-area { background: var(--card-bg); border: 1px solid var(--border-color); }
+
+.list-section { display: none; }
+.list-section.active-panel { display: block; animation: fadeIn 0.4s; }
+
+/* --- FILA DE TAREA (ITEM ROW) --- */
+.item-row {
+    background: var(--card-bg);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.item-info { display: flex; flex-direction: column; gap: 5px; flex: 1; }
+
+.item-header-line { display: flex; align-items: center; gap: 10px; }
+
+.titulo-actividad {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.badge-tipo {
+    font-size: 0.75rem;
+    font-weight: 900;
+    background-color: var(--accent);
+    color: #000;
+    padding: 3px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.item-details-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-left: 2px;
+}
+
+.detalle-extra { font-weight: 500; display: flex; align-items: center; gap: 5px; }
+.detalle-curso { color: #64b5f6; }
+.detalle-lugar { color: #81c784; }
+
+/* --- BARRA DE PROGRESO (METAS) --- */
+.meta-progreso-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+    margin-bottom: 5px;
+}
+.meta-texto {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    min-width: 30px;
+}
+.barra-fondo {
+    flex: 1;
+    height: 6px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80px;
+}
+.barra-relleno {
+    height: 100%;
+    background-color: #81d4fa;  /* Celeste */
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* --- BOTONES DE ACCIÓN (CHECK, EDITAR, BORRAR) --- */
+.item-actions { display: flex; gap: 15px; align-items: center; padding-left: 15px; }
+
+.btn-check {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--gray-btn-bg);
+    color: var(--gray-btn-icon);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+.btn-check:hover { background-color: var(--success); color: white; transform: scale(1.1); }
+
+.btn-action { color: var(--text-muted); font-size: 1.1rem; }
+.btn-action:hover { color: var(--accent); }
+.btn-action.delete:hover { color: var(--danger); }
+
+/* --- DIARIO DE GRATITUD --- */
+.item-gratitud {
+    background-color: #fff; /* Fondo blanco en modo claro */
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px; /* Un poco de padding lateral */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px; /* Bordes suaves */
+    margin-bottom: 5px;
+}
+
+.acciones-gratitud {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* ¡AQUÍ ESTÁ LA SEPARACIÓN QUE PEDISTE! */
+}
+
+.acciones-gratitud a { font-size: 1.1rem; text-decoration: none; }
+
+.btn-mini-editar { color: #aaa; transition: color 0.3s; }
+.btn-mini-editar:hover { color: #26a69a; }
+
+.btn-mini-borrar { color: #aaa; }
+.btn-mini-borrar:hover { color: #ef5350; }
+
+/* === ARREGLO PARA EL DIARIO EN MODO OSCURO (NUEVO) === */
+[data-theme="dark"] .item-gratitud {
+    background-color: #1f1f1f; /* Fondo oscuro */
+    border-bottom: 1px solid #333;
+    color: #e0e0e0;
+}
+[data-theme="dark"] .item-gratitud p { color: #ffffff; } /* Texto blanco */
+[data-theme="dark"] .item-gratitud small { color: #aaa; } /* Fecha gris */
+
+[data-theme="dark"] .acciones-gratitud a { color: #888; }
+[data-theme="dark"] .acciones-gratitud a:hover { color: #fff; }
+
+/* --- MENSAJES Y BIENVENIDA --- */
+.mensaje-exito {
+    background-color: var(--card-bg); /* Se adapta al modo claro/oscuro */
+    color: var(--success);
+    border: 1px solid var(--success);
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    /* PROPIEDAD CLAVE PARA EL DESVANECIMIENTO */
+    transition: opacity 0.5s ease, transform 0.5s ease, margin 0.5s ease;
+
+    animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Animación de entrada elegante */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Variante para mensajes de información (Sugerencias de bienestar) */
+.mensaje-exito.info {
+    color: #64b5f6;
+    border-color: #64b5f6;
+}
+
+.welcome-panel { text-align: center; padding-top: 50px; opacity: 0.8; color: var(--text-muted); }
+.welcome-icon { font-size: 5rem; color: var(--accent); margin-bottom: 20px; }
+
+.history-container { margin-top: 50px; opacity: 0.7; }
+.history-item { padding: 8px 0; border-bottom: 1px dashed var(--border-color); display: flex; justify-content: space-between; font-size: 0.9rem; text-decoration: line-through; }
+/* --- BOTONES DE EMOCIONES (CON TEXTO) --- */
+.emociones-row {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.emo-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    /* ESTO ES LO QUE PONE EL TEXTO DEBAJO */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.emo-btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(0,0,0,0.05); /* Sombra suave */
+    border-radius: 10px;
+}
+
+.emo-icon {
+    font-size: 2rem; /* Tamaño del emoji */
+    margin-bottom: 2px;
+}
+
+.emo-nombre {
+    font-size: 0.75rem; /* Letra pequeña */
+    color: var(--text-muted);
+    font-weight: 600;
+}
