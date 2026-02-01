@@ -1,200 +1,184 @@
-/* estilos_editar.css - VERSIÓN COMPACTA (FONDO MENTA / TARJETA BLANCA) */
-
+/* --- VARIABLES DE COLOR --- */
 :root {
-    /* --- MODO CLARO --- */
-    --bg-body: #e0f2f1;       /* Fondo Menta */
-    --bg-card: #ffffff;       /* Tarjeta Blanca */
+    --primary-color: #4DB6AC;    /* Menta Planify */
+    --primary-hover: #26A69A;
+    --bg-light: #f4f7f6;
+    --card-bg-light: #ffffff;
+    --text-light: #333333;
 
-    --text-main: #004d40;
-    --text-muted: #546e7a;
-    --border: #cfd8dc;
-
-    --input-bg: #f8fafc;
-    --input-focus-bg: #ffffff;
-
-    --shadow: rgba(0, 137, 123, 0.15);
-    --accent: #00897b;
-    --accent-hover: #00695c;
-    --btn-text: #ffffff;
-}
-
-/* --- MODO OSCURO --- */
-[data-theme="dark"] {
-    --bg-body: #121212;
-    --bg-card: #1e2524;
-    --text-main: #e0f2f1;
-    --text-muted: #90a4ae;
-    --border: #2f4f4f;
-
-    --input-bg: #263238;
-    --input-focus-bg: #37474f;
-
-    --shadow: rgba(0, 0, 0, 0.6);
-    --accent: #80cbc4;
-    --accent-hover: #4db6ac;
-    --btn-text: #000000;
+    /* Modo Oscuro */
+    --bg-dark: #121212;
+    --card-bg-dark: #1e1e1e;
+    --text-dark: #e0e0e0;
+    --border-dark: #333333;
 }
 
 /* --- ESTILOS GENERALES --- */
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: var(--bg-body);
-    color: var(--text-main);
-    margin: 0;
-    transition: background-color 0.3s, color 0.3s;
-    padding: 15px;
+    transition: background 0.3s ease;
 }
 
-.card {
-    background: var(--bg-card);
-    /* AQUÍ REDUJIMOS EL TAMAÑO: */
-    padding: 2rem;            /* Menos espacio interno (antes era 3rem) */
-    max-width: 420px;         /* Más angosta (antes era 500px) */
+[data-theme="dark"] {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
 
+/* --- LA TARJETA (CARD) --- */
+.card {
+    background: var(--card-bg-light);
+    padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px var(--shadow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     width: 100%;
-    box-sizing: border-box;
-    border: none;
+    max-width: 450px;
     position: relative;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 [data-theme="dark"] .card {
-    border: 1px solid var(--border);
+    background: var(--card-bg-dark);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 h2 {
     margin-top: 0;
-    margin-bottom: 1.5rem;
-    color: var(--accent);
+    color: var(--primary-color);
+    font-size: 1.8rem;
     text-align: center;
-    font-weight: 800;
-    font-size: 1.5rem; /* Letra un poco más pequeña */
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
 }
 
-/* --- FORMULARIO --- */
-
-form p {
-    margin-bottom: 1rem; /* Menos espacio entre cajitas */
+/* --- FORMULARIO Y INPUTS --- */
+p {
+    margin-bottom: 1.2rem;
 }
 
 label {
     display: block;
-    margin-bottom: 6px;
-    color: var(--text-muted);
     font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: inherit;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="datetime-local"],
-textarea,
-select {
+label i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+/* Inputs de Django (.form-control y .form-select) */
+.form-control, .form-select, input[type="number"] {
     width: 100%;
-    /* Inputs más compactos */
-    padding: 10px 14px;
-    background-color: var(--input-bg);
-    border: 2px solid transparent;
-    border-radius: 10px;
-    color: var(--text-main);
-    font-size: 0.95rem;
-    font-family: inherit;
-    box-sizing: border-box;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: #fff;
     transition: all 0.3s ease;
+    box-sizing: border-box; /* Importante para que no se salga del borde */
 }
 
-input:focus, textarea:focus, select:focus {
-    background-color: var(--input-focus-bg);
-    border-color: var(--accent);
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] input[type="number"] {
+    background-color: #2c2c2c;
+    border-color: var(--border-dark);
+    color: white;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(38, 166, 154, 0.15);
+    box-shadow: 0 0 0 4px rgba(77, 182, 172, 0.2);
 }
 
 /* --- BOTONES --- */
-
 .acciones-botones {
-    margin-top: 1.8rem;
     display: flex;
     gap: 12px;
+    margin-top: 2rem;
 }
 
 .btn {
     flex: 1;
-    padding: 12px; /* Botones un poco menos altos */
+    padding: 12px;
     border: none;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
+    border-radius: 12px;
+    font-weight: 600;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
-/* Guardar (Menta) */
 .btn-save {
-    background-color: var(--accent);
-    color: var(--btn-text);
-    box-shadow: 0 4px 12px rgba(0, 137, 123, 0.3);
+    background-color: var(--primary-color);
+    color: white;
 }
 
 .btn-save:hover {
-    background-color: var(--accent-hover);
+    background-color: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 137, 123, 0.5);
 }
 
-/* Cancelar (Gris) */
 .btn-cancel {
-    background-color: var(--input-bg);
-    color: var(--text-muted);
-    border: 2px solid transparent;
+    background-color: #f0f0f0;
+    color: #666;
+}
+
+[data-theme="dark"] .btn-cancel {
+    background-color: #333;
+    color: #bbb;
 }
 
 .btn-cancel:hover {
-    background-color: #eceff1;
-    color: #37474f;
-    border-color: #cfd8dc;
+    background-color: #e2e2e2;
 }
 
-/* Botón Tema */
+/* --- BOTÓN FLOTANTE Y TEMA --- */
 .theme-toggle {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
+    top: 15px;
+    right: 15px;
+    background: none;
     border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    font-size: 1.2rem;
     cursor: pointer;
-    color: var(--text-muted);
+    color: var(--primary-color);
+}
+
+.btn-flotante-regresar {
+    position: fixed;
+    bottom: 25px;
+    right: 50px; /* Como pediste, 5mm más a la izq */
+    width: 55px;
+    height: 55px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.3s;
-}
-.theme-toggle:hover {
-    color: var(--accent);
-    transform: rotate(20deg);
-    background-color: rgba(0,0,0,0.05);
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 1.4rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-#id_nivel_avance {
-    background-color: var(--input-bg) !important;
-    border: 2px solid transparent;
+.btn-flotante-regresar:hover {
+    transform: scale(1.1) rotate(10deg);
 }

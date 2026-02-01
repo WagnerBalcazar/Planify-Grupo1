@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ titulo }}</title>
+    <title>{{ titulo }} | Planify</title>
     <link rel="stylesheet" href="{% static 'gestion_actividades/estilos_editar.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -20,24 +20,64 @@
     <form method="post">
         {% csrf_token %}
 
-        {{ form.as_p }}
-
-        {% if form.instance.tipo_real == 'Meta' %}
+        {% if form.titulo %}
             <p>
-                <label for="id_nivel_avance" style="font-weight: bold; display:block; margin-bottom:5px;">
-                    <i class="fas fa-chart-line"></i> Progreso Actual (%):
-                </label>
-                <input type="number"
-                       name="nivel_avance"
-                       id="id_nivel_avance"
-                       value="{{ form.instance.meta.nivel_avance }}"
-                       min="0" max="100"
-                       style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                <label><i class="fas fa-edit"></i> Título:</label>
+                {{ form.titulo }}
+            </p>
+
+            <p>
+                <label><i class="fas fa-calendar-alt"></i> Fecha y Hora:</label>
+                {{ form.fecha_hora }}
+            </p>
+
+            <p>
+                <label><i class="fas fa-flag"></i> Prioridad:</label>
+                {{ form.prioridad }}
+            </p>
+
+            {% if actividad.tipo_real == 'Tarea' %}
+                <p>
+                    <label><i class="fas fa-book"></i> Materia / Curso:</label>
+                    {{ form.curso }}
+                </p>
+            {% endif %}
+
+            {% if actividad.tipo_real == 'Evento' %}
+                <p>
+                    <label><i class="fas fa-map-marker-alt"></i> Ubicación / Lugar:</label>
+                    {{ form.lugar }}
+                </p>
+            {% endif %}
+
+            {% if actividad.tipo_real == 'Meta' %}
+                <p>
+                    <label for="id_nivel_avance" style="font-weight: bold; display:block; margin-bottom:5px;">
+                        <i class="fas fa-chart-line"></i> Progreso Actual (%):
+                    </label>
+                    <input type="number"
+                           name="nivel_avance"
+                           id="id_nivel_avance"
+                           value="{{ actividad.meta.nivel_avance }}"
+                           min="0" max="100"
+                           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </p>
+            {% endif %}
+
+        {% else %}
+            <p>
+                <label><i class="fas fa-heart"></i> Tu nota de gratitud:</label>
+                <textarea name="contenido_gratitud"
+                          rows="8"
+                          placeholder="Escribe aquí..."
+                          style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-family: inherit; font-size: 1rem; background: var(--input-bg); color: var(--text-main);"
+                          required>{{ entrada.contenido }}</textarea>
             </p>
         {% endif %}
+
         <div class="acciones-botones">
             <button type="submit" class="btn btn-save">
-                <i class="fas fa-save"></i> Guardar
+                <i class="fas fa-save"></i> Guardar Cambios
             </button>
             <a href="{% url 'dashboard' %}" class="btn btn-cancel">
                 Cancelar
@@ -46,8 +86,11 @@
     </form>
 </div>
 
+<a href="{% url 'dashboard' %}" class="btn-flotante-regresar" title="Volver al Inicio">
+    <i class="fas fa-home"></i>
+</a>
+
 <script>
-    // Script para manejar el Modo Oscuro y recordarlo
     function toggleTheme() {
         const body = document.body;
         if (body.hasAttribute('data-theme')) {
@@ -59,7 +102,7 @@
         }
     }
 
-    // Al cargar la página, verificar preferencia
+    // Mantener consistencia con la elección del usuario
     if (localStorage.getItem('theme') === 'dark') {
         document.body.setAttribute('data-theme', 'dark');
     }

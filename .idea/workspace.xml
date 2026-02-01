@@ -5,22 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ce38a37-1e04-483c-94c2-8d8a90851bd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Planify.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bienestar/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_actividades/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos_editar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/logica.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/editar_item.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_actividades/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/static/usuarios/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/templates/usuarios/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/templates/usuarios/registro.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/db-forest-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planify/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planify/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planify/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planify/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bienestar/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bienestar/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos_editar.css" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos_editar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/logica.js" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/logica.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/editar_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/editar_item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/planify_byts.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/planify_byts.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/static/usuarios/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/usuarios/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/usuarios/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/usuarios/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/usuarios/registro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +64,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -123,7 +131,19 @@
       <workItem from="1769398878084" duration="830000" />
       <workItem from="1769400963812" duration="7673000" />
       <workItem from="1769436113375" duration="16929000" />
-      <workItem from="1769552890204" duration="30248000" />
+      <workItem from="1769552890204" duration="31766000" />
+      <workItem from="1769614095061" duration="4524000" />
+      <workItem from="1769620296863" duration="909000" />
+      <workItem from="1769633502394" duration="34078000" />
+      <workItem from="1769695485406" duration="2216000" />
+      <workItem from="1769741277729" duration="732000" />
+      <workItem from="1769787445278" duration="860000" />
+      <workItem from="1769834137195" duration="828000" />
+      <workItem from="1769878139270" duration="10936000" />
+      <workItem from="1769904290154" duration="1856000" />
+      <workItem from="1769918563697" duration="630000" />
+      <workItem from="1769921254385" duration="805000" />
+      <workItem from="1769924899781" duration="2772000" />
     </task>
     <servers />
   </component>

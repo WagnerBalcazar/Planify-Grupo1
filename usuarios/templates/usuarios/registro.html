@@ -4,38 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse - Planify</title>
-    <link rel="stylesheet" href="{% static 'usuarios/css/login.css' %}">
+    <title>Registro | BYTS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'usuarios/css/login.css' %}">
 </head>
 <body>
 
     <div class="login-card">
-        <div class="logo"><i class="fas fa-user-plus"></i></div>
-        <h2>Crear Cuenta</h2>
+        <span class="byts-badge">BYTS DEV</span>
+
+        <div class="logo"><i class="fas fa-leaf"></i></div>
+        <h2>Nueva Cuenta</h2>
 
         <form method="post">
             {% csrf_token %}
-
             {% for field in form %}
             <div class="form-group">
                 <label>{{ field.label }}</label>
                 {{ field }}
-                {% if field.help_text %}
-                    <small style="color:#aaa; font-size:0.7rem;">{{ field.help_text }}</small>
-                {% endif %}
                 {% for error in field.errors %}
-                    <div style="color:#ff5252; font-size:0.8rem;">{{ error }}</div>
+                    <small style="color: #e57373; font-size: 0.75rem;">{{ error }}</small>
                 {% endfor %}
             </div>
             {% endfor %}
-
             <button type="submit" class="btn-login">Registrarse</button>
         </form>
 
-        <p style="margin-top:20px; color:var(--text-muted); font-size:0.8rem;">
-            ¿Ya tienes cuenta? <a href="{% url 'login' %}" style="color:var(--primary);">Inicia Sesión</a>
-        </p>
+        <p class="footer-link">¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia Sesión</a></p>
+
+        <div class="team-byts">Powered by <b>BYTS Team</b></div>
     </div>
 
 </body>

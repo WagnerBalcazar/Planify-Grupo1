@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 # Tus aplicaciones creadas:
-     # La que ya tenías (déjala por si acaso)
     'usuarios',            # Nueva
     'gestion_actividades', # Nueva
     'bienestar',           # Nueva

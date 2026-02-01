@@ -18,7 +18,7 @@
 <body>
 
     <header class="main-header">
-        <h1>PLANIFY 🌿</h1>
+        <h1>PLANIFY</h1>
         <div class="header-controls">
             <span>Hola, <strong>{{ usuario.username }}</strong></span>
             <button class="theme-toggle-btn" id="btnTema"><i class="fas fa-moon"></i></button>
@@ -38,21 +38,26 @@
                     <i class="fas fa-chevron-down toggle-icon"></i>
                 </div>
                 <div class="form-content" onclick="stopProp(event)">
-                    <form method="POST" action=""> {% csrf_token %}
+                    <form method="POST" action="" id="formActividad">
+                        {% csrf_token %}
                         <input type="hidden" name="btn_actividad" value="1">
+
                         <label class="label-muted">Tipo:</label>
                         <select name="tipo_actividad" id="tipoSelector">
                             <option value="Tarea">Tarea</option>
                             <option value="Evento">Evento</option>
                             <option value="Meta">Meta</option>
                         </select>
-                        <input type="text" name="titulo" placeholder="Título..." required>
+
+                        <input type="text" name="titulo" class="input-limitado" placeholder="Escribe el título..." required maxlength="30">
+
                         <input type="datetime-local" name="fecha" required>
 
-                        <input type="text" name="curso" id="inputCurso" class="input-dinamico" placeholder=" Materia o Curso">
-                        <input type="text" name="ubicacion" id="inputUbicacion" class="input-dinamico" placeholder="Lugar">
-                        <input type="number" name="nivel_avance" id="inputAvance" class="input-dinamico" placeholder="📈 % Avance (0-100)" min="0" max="100">
+                        <input type="text" name="curso" id="inputCurso" class="input-dinamico input-limitado" placeholder="Nombre de la materia" maxlength="20" style="display:none;">
 
+                        <input type="text" name="ubicacion" id="inputUbicacion" class="input-dinamico input-limitado" placeholder="Ubicación o Lugar" maxlength="20" style="display:none;">
+
+                        <input type="number" name="nivel_avance" id="inputAvance" class="input-dinamico" placeholder=" % Avance (0-100)" min="0" max="100" style="display:none;">
                         <div class="priority-selector">
                              <label>Prioridad:</label>
                              <select name="prioridad">
@@ -63,7 +68,6 @@
                         </div>
                         <button type="submit" class="btn-main">Guardar Actividad</button>
                     </form>
-                    <button class="btn-secondary" onclick="mostrarLista('listaTareas')">Mis Actividades Pendientes</button>
                 </div>
             </div>
 
@@ -78,70 +82,88 @@
                         {% csrf_token %}
                         <div class="emociones-row">
                             <button type="submit" name="emocion_seleccionada" value="Feliz" class="emo-btn">
-                                <span class="emo-icon">😊</span>
-                                <span class="emo-nombre">Feliz</span>
+                                <span class="emo-icon">😊</span><span class="emo-nombre">Feliz</span>
                             </button>
                             <button type="submit" name="emocion_seleccionada" value="Serio" class="emo-btn">
-                                <span class="emo-icon">😐</span>
-                                <span class="emo-nombre">Serio</span>
+                                <span class="emo-icon">😐</span><span class="emo-nombre">Serio</span>
                             </button>
                             <button type="submit" name="emocion_seleccionada" value="Triste" class="emo-btn">
-                                <span class="emo-icon">😢</span>
-                                <span class="emo-nombre">Triste</span>
+                                <span class="emo-icon">😢</span><span class="emo-nombre">Triste</span>
                             </button>
                             <button type="submit" name="emocion_seleccionada" value="Enojado" class="emo-btn">
-                                <span class="emo-icon">😠</span>
-                                <span class="emo-nombre">Enojado</span>
+                                <span class="emo-icon">😠</span><span class="emo-nombre">Enojado</span>
                             </button>
                             <button type="submit" name="emocion_seleccionada" value="Ansioso" class="emo-btn">
-                                <span class="emo-icon">😰</span>
-                                <span class="emo-nombre">Ansioso</span>
+                                <span class="emo-icon">😰</span><span class="emo-nombre">Ansioso</span>
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
+
             <div class="input-card" onclick="toggleAccordion(this)">
-    <div class="card-header-visible">
-        <h3><i class="fas fa-book"></i> Diario Gratitud</h3>
-        <i class="fas fa-chevron-down toggle-icon"></i>
-    </div>
-    <div class="form-content" onclick="stopProp(event)">
-        <form method="POST" action="{% url 'registrar_gratitud' %}">
-            {% csrf_token %}
-            <textarea name="contenido_gratitud" rows="3" placeholder="Agradezco por..." required></textarea>
-            <button type="submit" class="btn-main" onclick="stopProp(event)">Guardar Gratitud</button>
-        </form>
+                <div class="card-header-visible">
+                    <h3><i class="fas fa-book"></i> Diario Gratitud</h3>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="form-content" onclick="stopProp(event)">
+                    <form method="POST" action="{% url 'registrar_gratitud' %}">
+                        {% csrf_token %}
+                        <textarea name="contenido_gratitud" class="input-limitado" rows="3" placeholder="¿Por qué estás agradecido hoy?" required maxlength="150"></textarea>
+                        <button type="submit" class="btn-main" onclick="stopProp(event)">Guardar</button>
+                    </form>
+                    <button type="button" class="btn-secondary" onclick="stopProp(event); mostrarLista('listaGratitud')">Ver Diario</button>
+                </div>
+            </div>
 
-        <button type="button" class="btn-secondary" onclick="stopProp(event); mostrarLista('listaGratitud')">
-            <i class="fas fa-eye"></i> Ver mi Diario
-        </button>
-    </div>
-</div>
+            <div class="input-card" onclick="mostrarLista('listaTareas')">
+                <div class="card-header-visible">
+                    <h3><i class="fas fa-calendar-alt"></i> Mis Actividades</h3>
+                    <i class="fas fa-arrow-right toggle-icon" style="transform: none; font-size: 0.9rem;"></i>
+                </div>
+            </div>
 
-
+            <div class="input-card" onclick="mostrarLista('vistaHistorial')">
+                <div class="card-header-visible">
+                    <h3><i class="fas fa-history"></i> Historial</h3>
+                    <i class="fas fa-arrow-right toggle-icon" style="transform: none; font-size: 0.9rem;"></i>
+                </div>
+            </div>
 
         </aside>
 
-        <main class="content-area">
+       <main class="content-area">
             {% if messages %}
                 <div class="messages-container">
                     {% for message in messages %}
-                        <div class="mensaje-exito {{ message.tags }}">
-                            <i class="fas fa-info-circle"></i> {{ message }}
+                        <div class="notificacion {{ message.tags }}">
+                            {% if "error" in message.tags %}
+                                <i class="fas fa-trash-alt"></i>
+                            {% else %}
+                                <i class="fas fa-check-circle"></i>
+                            {% endif %}
+                            {{ message }}
                         </div>
                     {% endfor %}
                 </div>
             {% endif %}
 
             <div id="panelBienvenida" class="list-section active-panel welcome-panel">
-                <i class="fas fa-leaf welcome-icon"></i>
+                <div class="welcome-icon"><i class="fas fa-leaf"></i></div>
                 <h2>Bienvenido a Planify</h2>
-                <p>Selecciona una opción del menú para comenzar.</p>
+                <div class="frase-container">
+                    <p class="frase-motivadora">“{{ frase }}”</p>
+                </div>
             </div>
 
             <div id="listaTareas" class="list-section">
-                <h2 class="section-title"> Mis Actividades Pendientes</h2>
+                <div class="header-row">
+                    <h2 class="section-title">Lista de Actividades</h2>
+                    <div class="view-switcher">
+                        <button class="btn-switch active" disabled><i class="fas fa-list-ul"></i> Lista</button>
+                        <button class="btn-switch" onclick="mostrarLista('vistaCalendario')"><i class="far fa-calendar-alt"></i> Calendario</button>
+                    </div>
+                </div>
 
                 {% for item in mis_tareas %}
                 <div class="item-row prioridad-{{ item.prioridad|lower }}">
@@ -150,7 +172,6 @@
                             <span class="badge-tipo">{{ item.tipo_real|upper }}</span>
                             <h4 class="titulo-actividad">{{ item.titulo }}</h4>
                         </div>
-
                         {% if item.tipo_real == 'Meta' %}
                              <div class="meta-progreso-container" title="Avance: {{ item.meta.nivel_avance }}%">
                                <span class="meta-texto">{{ item.meta.nivel_avance }}%</span>
@@ -159,7 +180,6 @@
                                </div>
                             </div>
                         {% endif %}
-
                         <div class="item-details-line">
                             <small class="detalle-fecha"><i class="far fa-clock"></i> {{ item.fecha_hora|date:"d M, H:i" }}</small>
                             {% if item.tipo_real == 'Tarea' and item.tarea.curso %}
@@ -170,58 +190,111 @@
                             {% endif %}
                         </div>
                     </div>
-
                     <div class="item-actions">
-                        <a href="{% url 'completar_tarea' item.id %}" class="btn-check" title="Completar">
-                            <i class="fas fa-check"></i>
-                        </a>
-                        <a href="{% url 'editar_tarea' item.id %}" class="btn-action edit"><i class="fas fa-pen"></i></a>
-                        <a href="{% url 'eliminar_tarea' item.id %}" class="btn-action delete" onclick="return confirm('¿Eliminar?')"><i class="fas fa-trash"></i></a>
+                        <a href="{% url 'completar_tarea' item.id %}" class="btn-check" title="Completar"><i class="fas fa-check"></i></a>
+                        <a href="{% url 'editar_tarea' item.id %}" class="btn-action edit" title="Editar"><i class="fas fa-pen"></i></a>
+
+                        <a href="{% url 'eliminar_tarea' item.id %}" class="btn-action delete btn-eliminar-sweet" title="Eliminar"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
                 {% empty %}
-                <div class="empty-state"><p>No hay pendientes.</p></div>
+                <div class="empty-state"><p>No hay actividades pendientes.</p></div>
                 {% endfor %}
+            </div>
 
+            <div id="vistaCalendario" class="list-section">
+                <div class="header-row">
+                    <h2 class="section-title">Calendario</h2>
+                    <div class="view-switcher">
+                        <button class="btn-switch" onclick="mostrarLista('listaTareas')"><i class="fas fa-list-ul"></i> Lista</button>
+                        <button class="btn-switch active" disabled><i class="far fa-calendar-alt"></i> Calendario</button>
+                    </div>
+                </div>
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button class="calendar-nav-btn" onclick="cambiarMes(-1)"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="mesAnio"></h3>
+                        <button class="calendar-nav-btn" onclick="cambiarMes(1)"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-day-name">Dom</div>
+                        <div class="calendar-day-name">Lun</div>
+                        <div class="calendar-day-name">Mar</div>
+                        <div class="calendar-day-name">Mié</div>
+                        <div class="calendar-day-name">Jue</div>
+                        <div class="calendar-day-name">Vie</div>
+                        <div class="calendar-day-name">Sáb</div>
+                    </div>
+                    <div class="calendar-grid" id="gridDias"></div>
+                </div>
+            </div>
+
+            <div id="vistaHistorial" class="list-section">
+                <h2 class="section-title">Historial de Completadas</h2>
                 {% if historial %}
-                    <div class="history-container">
-                        <h4>Historial Reciente</h4>
+                    <div class="history-container-full">
                         {% for h in historial %}
-                            <div class="history-item">
-                                <span class="history-title">{{ h.titulo }}</span>
-                                <span class="history-check">✔</span>
+                            <div class="item-row" style="opacity: 0.7; background: #f9f9f9;">
+                                <div class="item-info">
+                                    <div class="item-header-line">
+                                        <h4 class="titulo-actividad" style="text-decoration: line-through; color: #888;">{{ h.titulo }}</h4>
+                                    </div>
+                                    <small class="detalle-fecha">Completada el: {{ h.fecha_hora|date:"d M" }}</small>
+                                </div>
+                                <div class="item-actions">
+                                    <span style="color: var(--success); font-weight: bold;"><i class="fas fa-check-circle"></i> Hecho</span>
+                                </div>
                             </div>
                         {% endfor %}
                     </div>
+                {% else %}
+                    <div class="empty-state"><p>Aún no has completado actividades.</p></div>
                 {% endif %}
             </div>
 
             <div id="listaGratitud" class="list-section">
-                <h2 class="section-title"><i class="fas fa-book-open"></i> Mi Diario de Gratitud</h2>
+                <h2 class="section-title">Diario de Gratitud</h2>
                 <div class="lista-gratitud-container">
                     {% for entrada in mi_gratitud %}
                     <div class="item-gratitud">
                         <div class="contenido-gratitud">
                             <p>{{ entrada.contenido }}</p>
-                            <small>{{ entrada.fecha|date:"d M, Y" }}</small>
+                            <small>{{ entrada.fecha_creacion|date:"d M, Y" }}</small>
                         </div>
                         <div class="acciones-gratitud">
-                            <a href="{% url 'editar_gratitud' entrada.id %}" class="btn-mini-editar" title="Editar">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                            <a href="{% url 'eliminar_gratitud' entrada.id %}" class="btn-mini-borrar" onclick="return confirm('¿Borrar?')" title="Eliminar">
-                                <i class="fas fa-trash"></i>
-                            </a>
+                            <a href="{% url 'editar_gratitud' entrada.id %}" class="btn-mini-editar" title="Editar"><i class="fas fa-pen"></i></a>
+
+                            <a href="{% url 'eliminar_gratitud' entrada.id %}" class="btn-mini-borrar btn-eliminar-sweet" title="Eliminar"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
                     {% empty %}
-                        <div class="empty-state"><p>Aún no has escrito nada hoy.</p></div>
+                        <div class="empty-state"><p>Vacío hoy.</p></div>
                     {% endfor %}
                 </div>
             </div>
+
         </main>
     </div>
 
+    <script id="data-tareas" type="application/json">
+    [
+        {% for item in mis_tareas %}
+        {
+            "titulo": "{{ item.titulo|escapejs }}",
+            "fecha": "{{ item.fecha_hora|date:'Y-m-d' }}",
+            "tipo": "{{ item.tipo_real|lower }}",
+            "hora": "{{ item.fecha_hora|date:'H:i' }}"
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ]
+    </script>
+
+    <a href="{% url 'dashboard' %}" class="btn-flotante-regresar" title="Volver al Inicio">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{% static 'gestion_actividades/logica.js' %}"></script>
+
 </body>
 </html>

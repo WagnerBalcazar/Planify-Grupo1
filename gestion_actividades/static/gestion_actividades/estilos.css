@@ -1,5 +1,5 @@
 /* =========================================
-   ESTILOS.CSS - PLANIFY (VERSIÓN FINAL)
+   ESTILOS.CSS - PLANIFY (TEMA MENTA FINAL - CLEAN)
    ========================================= */
 
 :root {
@@ -8,12 +8,17 @@
     --card-bg: #ffffff;
     --text-main: #2c4a52;
     --text-muted: #607d8b;
-    --accent: #7fc8c6;
+    --accent: #7fc8c6;         /* Color Menta Principal */
     --btn-text: #ffffff;
     --input-bg: #f7fdfd;
     --border-color: #bce0e0;
+
+    /* Estados */
     --danger: #e57373;
     --success: #2ecc71;
+    --warning: #ffa726;
+
+    /* Botones neutros */
     --gray-btn-bg: #eceff1;
     --gray-btn-icon: #90a4ae;
 }
@@ -24,12 +29,13 @@
     --card-bg: #1e1e1e;
     --text-main: #e0f2f1;
     --text-muted: #b0bec5;
-    --accent: #64ffda;
+    --accent: #64ffda;         /* Menta Neón para oscuro */
     --btn-text: #000000;
     --input-bg: #2d2d2d;
     --border-color: #444444;
     --danger: #ff5252;
     --success: #00e676;
+    --warning: #ffb74d;
     --gray-btn-bg: #2d2d2d;
     --gray-btn-icon: #b0bec5;
 }
@@ -40,7 +46,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Evita doble scroll */
     transition: background-color 0.5s ease;
 }
 
@@ -49,7 +55,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    padding: 20px 40px;
     background: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
     height: 50px;
@@ -92,10 +98,10 @@ body {
 /* Tarjeta Abierta (Active) */
 .input-card.active {
     border-left: 5px solid var(--accent);
-    z-index: 1000; /* Se superpone a todo */
+    z-index: 1000;
 }
 
-/* Contenido del Formulario (Animación) */
+/* Contenido del Formulario */
 .form-content {
     max-height: 0;
     opacity: 0;
@@ -106,14 +112,14 @@ body {
 
 /* Cuando se abre la tarjeta */
 .input-card.active .form-content {
-    max-height: 1500px;
+    max-height: 1000px; /* Altura suficiente */
     opacity: 1;
     margin-top: 20px;
     padding-top: 15px;
     border-top: 1px solid var(--border-color);
     cursor: default;
-    overflow: visible !important; /* Permite ver el calendario */
-    padding-bottom: 50px;
+    overflow: visible !important;
+    padding-bottom: 20px;
 }
 
 /* Encabezado de la Tarjeta */
@@ -125,18 +131,12 @@ body {
     width: 100%;
 }
 
-/* Flechita giratoria */
-.toggle-icon {
-    transition: transform 0.3s;
-    margin-left: auto;
-}
+.toggle-icon { transition: transform 0.3s; margin-left: auto; }
 .input-card.active .toggle-icon { transform: rotate(180deg); color: var(--accent); }
 
-/* --- FORMULARIOS (Inputs y Botones) --- */
+/* --- FORMULARIOS --- */
 input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
+    width: 100%; padding: 12px; margin: 10px 0;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background: var(--input-bg);
@@ -150,10 +150,51 @@ input, select, textarea {
 .btn-main { background: var(--text-main); color: var(--btn-text); border: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 100%; margin-top: 10px; cursor: pointer; }
 .btn-secondary { background: transparent; border: 1px solid var(--accent); color: var(--text-main); padding: 8px; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; }
 
-/* Emociones */
-.emociones-row { display: flex; justify-content: space-around; }
-.emo-btn { background: none; border: none; font-size: 1.8rem; cursor: pointer; transition: transform 0.2s; }
-.emo-btn:hover { transform: scale(1.2); }
+/* === EMOCIONES (CORREGIDO: Botones grandes y cuadrados) === */
+/* === EMOCIONES (ESTILO LIMPIO - SIN CUADROS) === */
+.emociones-row {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio */
+    padding: 10px 5px;
+}
+
+.emo-btn {
+    background: transparent;    /* Sin fondo blanco */
+    border: none;               /* Sin bordes cuadrados */
+    box-shadow: none;           /* Sin sombras de caja */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    /* Para alinear icono y texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.emo-btn:hover {
+    transform: scale(1.25);      /* Efecto lupa al pasar el mouse */
+    background: transparent;     /* Asegura que no salga color de fondo */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); /* Sombra suave solo al emoji */
+}
+
+.emo-icon {
+    font-size: 2.2rem;          /* Emoji GRANDE */
+    line-height: 1;
+    margin-bottom: 5px;
+    filter: grayscale(0.2);     /* Un toque sutil desaturado (opcional) */
+    transition: filter 0.3s;
+}
+
+.emo-btn:hover .emo-icon {
+    filter: grayscale(0);       /* Todo el color al pasar el mouse */
+}
+
+.emo-nombre {
+    font-size: 0.75rem;         /* Texto pequeño y discreto */
+    color: var(--text-muted);
+    font-weight: 600;
+}
 
 /* --- ÁREA DERECHA (MAIN CONTENT) --- */
 .content-area { flex: 1; background: rgba(255, 255, 255, 0.5); border-radius: 20px; padding: 30px; overflow-y: auto; }
@@ -162,13 +203,30 @@ input, select, textarea {
 .list-section { display: none; }
 .list-section.active-panel { display: block; animation: fadeIn 0.4s; }
 
+/* Header de Títulos y Botones (Alineación corregida) */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.section-title {
+    margin: 0;
+    color: var(--text-main);
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
 /* --- FILA DE TAREA (ITEM ROW) --- */
 .item-row {
     background: var(--card-bg);
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 10px;
-    border-left: 4px solid var(--accent);
+    border-left: 5px solid var(--accent) !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -176,206 +234,394 @@ input, select, textarea {
 }
 
 .item-info { display: flex; flex-direction: column; gap: 5px; flex: 1; }
-
 .item-header-line { display: flex; align-items: center; gap: 10px; }
-
-.titulo-actividad {
-    margin: 0;
-    font-size: 1.15rem;
-    color: var(--text-main);
-    line-height: 1.2;
-}
+.titulo-actividad { margin: 0; font-size: 1.15rem; color: var(--text-main); line-height: 1.2; }
 
 .badge-tipo {
-    font-size: 0.75rem;
-    font-weight: 900;
-    background-color: var(--accent);
-    color: #000;
-    padding: 3px 10px;
-    border-radius: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
+    font-size: 0.75rem; font-weight: 900;
+    background-color: var(--accent); color: #000;
+    padding: 3px 10px; border-radius: 12px;
+    text-transform: uppercase; letter-spacing: 0.5px;
 }
 
-.item-details-line {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-left: 2px;
-}
-
+.item-details-line { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; color: var(--text-muted); font-size: 0.9rem; margin-left: 2px; }
 .detalle-extra { font-weight: 500; display: flex; align-items: center; gap: 5px; }
 .detalle-curso { color: #64b5f6; }
 .detalle-lugar { color: #81c784; }
 
 /* --- BARRA DE PROGRESO (METAS) --- */
-.meta-progreso-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 100px;
-    margin-bottom: 5px;
-}
-.meta-texto {
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: var(--text-muted);
-    min-width: 30px;
-}
-.barra-fondo {
-    flex: 1;
-    height: 6px;
-    background-color: #eee;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 80px;
-}
-.barra-relleno {
-    height: 100%;
-    background-color: #81d4fa;  /* Celeste */
-    border-radius: 10px;
-    transition: width 0.5s ease-in-out;
-}
+.meta-progreso-container { display: flex; align-items: center; gap: 8px; min-width: 100px; margin-bottom: 5px; }
+.meta-texto { font-size: 0.8rem; font-weight: bold; color: var(--text-muted); min-width: 30px; }
+.barra-fondo { flex: 1; height: 6px; background-color: #eee; border-radius: 10px; overflow: hidden; width: 80px; }
+.barra-relleno { height: 100%; background-color: #81d4fa; border-radius: 10px; transition: width 0.5s ease-in-out; }
 
-/* --- BOTONES DE ACCIÓN (CHECK, EDITAR, BORRAR) --- */
+/* --- BOTONES ACCIÓN --- */
 .item-actions { display: flex; gap: 15px; align-items: center; padding-left: 15px; }
-
 .btn-check {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: var(--gray-btn-bg);
-    color: var(--gray-btn-icon);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-size: 0.9rem;
+    width: 32px; height: 32px; border-radius: 50%;
+    background-color: var(--gray-btn-bg); color: var(--gray-btn-icon);
+    display: flex; justify-content: center; align-items: center;
+    text-decoration: none; transition: all 0.3s; font-size: 0.9rem;
 }
 .btn-check:hover { background-color: var(--success); color: white; transform: scale(1.1); }
-
 .btn-action { color: var(--text-muted); font-size: 1.1rem; }
 .btn-action:hover { color: var(--accent); }
 .btn-action.delete:hover { color: var(--danger); }
 
-/* --- DIARIO DE GRATITUD --- */
+/* === DIARIO DE GRATITUD (CORREGIDO: Iconos Grises) === */
 .item-gratitud {
-    background-color: #fff; /* Fondo blanco en modo claro */
-    border-bottom: 1px solid #eee;
-    padding: 10px 15px; /* Un poco de padding lateral */
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 8px; /* Bordes suaves */
-    margin-bottom: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.contenido-gratitud small {
+    display: block;
+    color: var(--text-muted);
+    margin-top: 5px;
+    font-size: 0.85rem;
 }
 
 .acciones-gratitud {
     display: flex;
     align-items: center;
-    gap: 25px; /* ¡AQUÍ ESTÁ LA SEPARACIÓN QUE PEDISTE! */
+    gap: 12px;
 }
 
-.acciones-gratitud a { font-size: 1.1rem; text-decoration: none; }
-
-.btn-mini-editar { color: #aaa; transition: color 0.3s; }
-.btn-mini-editar:hover { color: #26a69a; }
-
-.btn-mini-borrar { color: #aaa; }
-.btn-mini-borrar:hover { color: #ef5350; }
-
-/* === ARREGLO PARA EL DIARIO EN MODO OSCURO (NUEVO) === */
-[data-theme="dark"] .item-gratitud {
-    background-color: #1f1f1f; /* Fondo oscuro */
-    border-bottom: 1px solid #333;
-    color: #e0e0e0;
+/* Forzamos que los enlaces sean grises por defecto */
+.acciones-gratitud a {
+    color: #b0bec5 !important; /* Gris suave */
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
 }
-[data-theme="dark"] .item-gratitud p { color: #ffffff; } /* Texto blanco */
-[data-theme="dark"] .item-gratitud small { color: #aaa; } /* Fecha gris */
 
-[data-theme="dark"] .acciones-gratitud a { color: #888; }
-[data-theme="dark"] .acciones-gratitud a:hover { color: #fff; }
+.acciones-gratitud a:hover {
+    color: var(--text-main) !important; /* Un poco más oscuro al pasar el mouse */
+}
+
+/* El botón de borrar se pone rojo al pasar el mouse */
+.acciones-gratitud .btn-mini-borrar:hover {
+    color: var(--danger) !important;
+}
 
 /* --- MENSAJES Y BIENVENIDA --- */
 .mensaje-exito {
-    background-color: var(--card-bg); /* Se adapta al modo claro/oscuro */
-    color: var(--success);
-    border: 1px solid var(--success);
-    padding: 15px 25px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    background-color: var(--card-bg); color: var(--success);
+    border: 1px solid var(--success); padding: 15px 25px;
+    border-radius: 12px; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-    /* PROPIEDAD CLAVE PARA EL DESVANECIMIENTO */
-    transition: opacity 0.5s ease, transform 0.5s ease, margin 0.5s ease;
-
     animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-/* Animación de entrada elegante */
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Variante para mensajes de información (Sugerencias de bienestar) */
-.mensaje-exito.info {
-    color: #64b5f6;
-    border-color: #64b5f6;
-}
+@keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 
 .welcome-panel { text-align: center; padding-top: 50px; opacity: 0.8; color: var(--text-muted); }
 .welcome-icon { font-size: 5rem; color: var(--accent); margin-bottom: 20px; }
+.history-container-full { margin-top: 10px; }
 
-.history-container { margin-top: 50px; opacity: 0.7; }
-.history-item { padding: 8px 0; border-bottom: 1px dashed var(--border-color); display: flex; justify-content: space-between; font-size: 0.9rem; text-decoration: line-through; }
-/* --- BOTONES DE EMOCIONES (CON TEXTO) --- */
-.emociones-row {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+/* =========================================
+   BOTONES DE CAMBIO DE VISTA (Estilo Cápsula Pro)
+   ========================================= */
+.view-switcher {
+    display: inline-flex;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 5px;
+    border-radius: 50px;
+    /* margin-bottom eliminado de aquí porque lo maneja el header-row */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.emo-btn {
-    background: none;
+.btn-switch {
     border: none;
+    background: transparent;
+    color: var(--text-muted);
+    padding: 8px 20px;
+    border-radius: 40px;
     cursor: pointer;
-    transition: transform 0.2s;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-    /* ESTO ES LO QUE PONE EL TEXTO DEBAJO */
+.btn-switch:hover {
+    color: var(--text-main);
+}
+
+.btn-switch.active {
+    background-color: var(--card-bg);
+    color: var(--accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: default;
+    transform: scale(1.02);
+}
+/* =========================================
+   AJUSTES PARA CALENDARIO (TAMAÑO MEDIO - EQUILIBRADO)
+   ========================================= */
+
+.calendar-container {
+    padding: 15px;
+    max-width: 750px; /* TAMAÑO ORIGINAL QUE TE GUSTA */
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.calendar-header {
+    margin-bottom: 12px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.calendar-header h3 {
+    font-size: 1rem;
+    margin: 0; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.calendar-nav-btn {
+    width: 28px; height: 28px;
+    background: transparent; border: 1px solid var(--border-color);
+    color: var(--text-main); border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+}
+.calendar-nav-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+/* GRILLA */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-day-name {
+    text-align: center; font-weight: bold; color: var(--text-muted);
+    font-size: 0.75rem; padding-bottom: 5px;
+}
+
+/* === DÍA (MEDIANO - TU CÓDIGO) === */
+.calendar-day {
+    min-height: 60px; /* Altura original */
+    height: auto;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 3px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 5px;
+    overflow: hidden;
 }
 
-.emo-btn:hover {
-    transform: scale(1.1);
-    background-color: rgba(0,0,0,0.05); /* Sombra suave */
-    border-radius: 10px;
-}
+.calendar-day.today { border: 1px solid var(--accent); background-color: rgba(127, 200, 198, 0.1); }
+.calendar-day.empty { background: transparent; border: none; min-height: 0; }
 
-.emo-icon {
-    font-size: 2rem; /* Tamaño del emoji */
-    margin-bottom: 2px;
-}
-
-.emo-nombre {
-    font-size: 0.75rem; /* Letra pequeña */
+/* NÚMERO DEL DÍA */
+.day-number {
+    text-align: right;
+    font-size: 0.75rem;
     color: var(--text-muted);
+    margin-bottom: 2px;
+    padding-right: 3px;
     font-weight: 600;
+}
+.today .day-number { color: var(--accent); font-weight: 800; }
+
+/* =======================================================
+   ESTO ES LO ÚNICO NUEVO: ETIQUETAS CON NOMBRE Y LETRA NEGRA
+   ======================================================= */
+.task-label {
+    display: block;
+    width: 100%;
+
+    /* Configuración para que quepa en el cuadro de 60px */
+    font-size: 10px;       /* Letra pequeña pero legible */
+    font-weight: 700;      /* Negrita */
+    color: #000000 !important; /* <<< LETRA NEGRA (OBLIGATORIO) */
+
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-bottom: 2px;    /* Separación entre tareas */
+
+    /* Si el nombre es largo, pone "..." */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+    box-shadow: none;      /* Estilo plano y limpio */
+}
+
+/* COLORES DE FONDO (PASTELES PARA QUE RESALTE LA LETRA NEGRA) */
+.task-label.tarea {
+    background-color: var(--accent); /* Tu color Menta */
+}
+
+.task-label.evento {
+    background-color: #ffccbc; /* Rojo/Salmón suave */
+}
+
+.task-label.meta {
+    background-color: #dcedc8; /* Verde claro */
+}
+/* CONTENEDOR DE TAREAS */
+.dots-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+/* === LA ETIQUETA (VISIBLE Y LEGIBLE) === */
+.task-dot {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* COLORES FORZADOS (Para que se vea sí o sí) */
+    background-color: var(--accent);
+    color: #000; /* Texto negro para contraste */
+
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 10px; /* <--- Letra un poquito más grande (legible) */
+    font-weight: 600;
+
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-top: 1px;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Sombra suave para destacar */
+}
+
+/* =========================================
+   ESTILOS FINALES DE ETIQUETAS (VISIBILIDAD + COLORES)
+   ========================================= */
+
+/* 1. ESTRUCTURA BASE (Igual para todos) */
+.task-dot {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* Forzamos texto negro para que SIEMPRE se lea */
+    color: #000 !important;
+    font-weight: 700;
+
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 10px;
+    margin-top: 1px;
+
+    /* Limpieza de sombras */
+    box-shadow: none !important;
+    text-shadow: none !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+
+    /* Fondo por defecto (por si falla el tipo) */
+    background-color: var(--accent) !important;
+}
+
+/* 2. COLORES ESPECÍFICOS (AQUÍ CAMBIAN LOS TONOS) */
+
+/* Tarea: Color Menta (Tu tema principal) */
+.task-dot.dot-tarea {
+    background-color: var(--accent) !important;
+}
+
+/* Evento: ROSA PASTEL */
+.task-dot.dot-evento {
+    background-color: #ffb7b2 !important; /* Rosa suave y cálido */
+}
+
+/* Meta: VERDE CAÑA PASTEL */
+.task-dot.dot-meta {
+    background-color: #dcedc8 !important; /* Verde caña fresco (tipo bambú claro) */
+}
+/* --- LOGO PLANIFY (AGREGADO) --- */
+.logo-planify {
+    font-size: 2rem;       /* Tamaño más grande (aprox 32px) */
+    font-weight: 800;      /* Letra bien gruesa (Bold extra) */
+    color: var(--text-main);
+    letter-spacing: 1px;   /* Un poquito de aire entre letras */
+    text-transform: uppercase; /* (Opcional) Fuerza mayúsculas para que se vea Pro */
+    cursor: default;       /* El cursor no cambia al pasar por encima */
+}
+
+/* Si quieres que brille un poco al pasar el mouse (Opcional) */
+.logo-planify:hover {
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+.btn-flotante-regresar {
+    position: fixed;
+    bottom: 30px;
+    right: 50px; /* Manteniendo los 50px del borde derecho */
+    width: 60px;
+    height: 60px;
+    background-color: #4DB6AC; /* El verde menta de Planify */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 1.5rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.btn-flotante-regresar:hover {
+    transform: scale(1.1);
+    background-color: #26A69A; /* Un tono más oscuro al pasar el mouse */
+    box-shadow: 0 6px 20px rgba(77, 182, 172, 0.4);
+}
+/* --- SISTEMA DE MENSAJES BYTS --- */
+.notificacion {
+    padding: 14px 22px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    animation: slideDown 0.4s ease-out;
+}
+
+/* El VERDE para cuando guardas o editas (Tag: success o info) */
+.notificacion.success, .notificacion.info {
+    background-color: #e0f2f1; /* Menta Pastel */
+    color: #0aed32;
+    border: 1px solid #b2dfdb;
+}
+
+/* El ROJO para cuando eliminas (Tag: error) */
+.notificacion.error {
+    background-color: #ffebee; /* Rojo/Coral Pastel */
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Opcional: Para que la alerta se vea más suave */
+div:where(.swal2-container) div:where(.swal2-popup) {
+    border-radius: 15px !important; /* Esquinas más redondas */
+    border: 1px solid #ffcccc; /* Borde sutil */
 }

@@ -1,35 +1,18 @@
-"""
-URL configuration for Planify project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path
-
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth import views as auth_views  # <--- Asegúrate de tener esto
-from usuarios import views as user_views
+from django.contrib.auth import views as auth_views
+from usuarios import views as user_views  # <--- Aquí están tus vistas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # --- CORRIGE ESTA LÍNEA EXACTAMENTE ASÍ ---
-    # Le decimos explícitamente: "Usa el HTML que está en la carpeta usuarios"
-    path('login/', auth_views.LoginView.as_view(template_name='usuarios/login.html'), name='login'),
+    # --- CAMBIO CRÍTICO AQUÍ ---
+    # BORRA la línea de auth_views.LoginView y pon esta:
+    path('login/', user_views.login_usuario, name='login'),
 
+    # Esta de logout está bien, déjala así si quieres
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+
     path('registro/', user_views.registro, name='registro'),
 
     path('', include('gestion_actividades.urls')),

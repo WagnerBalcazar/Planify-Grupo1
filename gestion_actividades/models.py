@@ -17,8 +17,8 @@ class Actividad(models.Model):
     prioridad = models.CharField(max_length=10, choices=PRIORIDAD_CHOICES, default='MEDIA')
     fecha_hora = models.DateTimeField()
 
-    # --- CAMBIO IMPORTANTE ---
-    # Movemos esto aquí para que TODOS (Eventos, Tareas) puedan tener check ✅
+
+    # Movemos esto aquí para que TODOS (Eventos, Tareas) puedan tener check
     completada = models.BooleanField(default=False)
 
     def __str__(self):
@@ -59,4 +59,3 @@ class Meta(Actividad):
         self.nivel_avance = 100
         self.completada = True  # También marcamos el check general
         self.save()
-        # ... lógica de frases ...

@@ -38,36 +38,36 @@ def registrar_gratitud(request):
         contenido = request.POST.get('contenido_gratitud')
         if contenido:
             EntradaGratitud.objects.create(usuario=request.user, contenido=contenido)
-            messages.success(request, "¡Guardado con éxito! 🙏")
+            messages.success(request, "¡Guardado con éxito! ")
 
     # Redirigir al dashboard
     return redirect('dashboard')
 
+
 @login_required
 def editar_gratitud(request, entrada_id):
-    """Permite editar una nota del diario desde la app bienestar."""
+    #
     entrada = get_object_or_404(EntradaGratitud, id=entrada_id, usuario=request.user)
 
     if request.method == 'POST':
-        form = GratitudForm(request.POST, instance=entrada)
-        if form.is_valid():
-            form.save()
+        # Capturamos el contenido directamente del textarea
+        nuevo_contenido = request.POST.get('contenido_gratitud')
+        if nuevo_contenido:
+            entrada.contenido = nuevo_contenido
+            entrada.save()
             messages.success(request, "Entrada del diario actualizada con éxito.")
             return redirect('dashboard')
-    else:
-        form = GratitudForm(instance=entrada)
 
-    # Reutilizamos el template de edición que ya tienes en gestión
+    #
     return render(request, 'gestion_actividades/editar_item.html', {
-        'form': form,
+        'entrada': entrada,
         'titulo': 'Editar Diario de Gratitud'
     })
 
-
 @login_required
 def eliminar_gratitud(request, entrada_id):
-    """Borra una entrada del diario."""
+
     entrada = get_object_or_404(EntradaGratitud, id=entrada_id, usuario=request.user)
     entrada.delete()
-    messages.warning(request, "Entrada eliminada correctamente.")
+    messages.error(request, "Entrada eliminada correctamente.")
     return redirect('dashboard')
