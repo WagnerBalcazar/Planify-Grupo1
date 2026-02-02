@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 
 
-# --- VISTA DE REGISTRO (Ya la tienes, está perfecta) ---
+# --- VISTA DE REGISTRO
 def registro(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -18,7 +18,7 @@ def registro(request):
     return render(request, 'usuarios/registro.html', {'form': form})
 
 
-# --- VISTA DE LOGIN (Añade esta para controlar errores) ---
+# --- VISTA DE LOGIN
 def login_usuario(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)

@@ -13,6 +13,6 @@ class GratitudAdmin(admin.ModelAdmin):
     def contenido_corto(self, obj):
         return obj.contenido[:50]
 
-# Registros simples para configuración
+# Registros  para configuración
 admin.site.register(FrasePositiva)
 admin.site.register(ActividadAutocuidado)

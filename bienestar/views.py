@@ -2,9 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import EstadoEmocional, EntradaGratitud
-# Asegúrate de que el Form esté disponible (puedes mover el form a bienestar o importarlo así)
-from gestion_actividades.forms import GratitudForm
-
 
 @login_required
 def registrar_emocion(request):
@@ -18,16 +15,16 @@ def registrar_emocion(request):
             nivel=nivel
         )
 
-        # 2. Obtenemos sugerencia del modelo (RF08)
+        # 2. Obtenemos sugerencia
         sugerencia = nuevo_estado.obtener_sugerencia()
 
         if nivel == 'Feliz':
             messages.success(request, " Sigue contagiando esa energía.")
         elif sugerencia:
-            # Mensaje azul con el consejo de la base de datos
+            # Mensaje de actividad de autocuidado.
             messages.info(request, f"  Sugerencia: {sugerencia.nombre} - {sugerencia.descripcion}")
         else:
-            # Si no hay actividades en la BD o es un estado neutro
+            # Si no hay actividades en la BD
             messages.success(request, "Estado de ánimo registrado correctamente.")
 
     return redirect('dashboard')
@@ -46,7 +43,7 @@ def registrar_gratitud(request):
 
 @login_required
 def editar_gratitud(request, entrada_id):
-    #
+
     entrada = get_object_or_404(EntradaGratitud, id=entrada_id, usuario=request.user)
 
     if request.method == 'POST':

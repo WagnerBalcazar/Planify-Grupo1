@@ -261,7 +261,7 @@ function inicializarSweetAlert() {
 
                 Swal.fire({
                     title: '¿Eliminar?',
-                    text: "¿Seguro que deseas eliminarlo?",
+                    text: "¿Estas seguro que quieres eliminar este elemento?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',

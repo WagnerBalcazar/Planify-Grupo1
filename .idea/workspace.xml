@@ -5,27 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ce38a37-1e04-483c-94c2-8d8a90851bd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/db-forest-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planify/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planify/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planify/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planify/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bienestar/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/bienestar/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bienestar/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bienestar/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bienestar/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bienestar/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos_editar.css" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/estilos_editar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/logica.js" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/logica.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/editar_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/editar_item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion_actividades/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/planify_byts.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/planify_byts.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/static/usuarios/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/usuarios/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/usuarios/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/usuarios/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/usuarios/registro.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,10 +130,34 @@
       <workItem from="1769918563697" duration="630000" />
       <workItem from="1769921254385" duration="805000" />
       <workItem from="1769924899781" duration="2772000" />
+      <workItem from="1769963056103" duration="3274000" />
+      <workItem from="1769985060541" duration="1079000" />
+      <workItem from="1769986174708" duration="86000" />
+      <workItem from="1770014493856" duration="1227000" />
+      <workItem from="1770048628712" duration="108000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/editar_item.html</url>
+          <line>107</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bienestar/views.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/usuarios/admin.py</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
