@@ -6,11 +6,11 @@ from django.db.models import Q
 
 # MODELOS
 from .models import Actividad, Tarea, Evento, Meta
-from bienestar.models import EstadoEmocional, EntradaGratitud, FrasePositiva
-from .forms import TareaForm, GratitudForm
+from bienestar.models import  EntradaGratitud, FrasePositiva
+from .forms import TareaForm
 
 
-# --- VISTA PRINCIPAL (DASHBOARD) ---
+# --- VISTA PRINCIPAL
 @login_required(login_url='login')
 def dashboard(request):
     usuario = request.user
