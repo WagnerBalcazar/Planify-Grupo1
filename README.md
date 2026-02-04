@@ -34,62 +34,81 @@
 El sistema busca no solo mejorar la productividad del usuario, sino también **promover el bienestar emocional**, combinando planificación y salud mental en una sola plataforma interactiva.
 
 <div align="center">
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Otro/e54c2e3e-41db-4273-9ecc-1269bad7e5f2.png" alt="GIF" width="600" height="500"></p>
 </div>
 
 ## Características ⚙️
 - **📅 Gestión de tareas, eventos y metas**: Crear, editar, eliminar y visualizar actividades en un calendario interactivo.
 
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-54-25.png" alt="GIF" width="500" height="400"></p>
   
 - **🔁 Vistas dinámicas del calendario**: Visualización diaria, semanal y mensual. 🔥
 
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-54-33.png" alt="GIF" width="500" height="400"></p>
+
 
 - **✅ Marcado de tareas completadas**: Permite llevar un seguimiento del progreso personal.
   
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-55-02.png" alt="GIF" width="500" height="400"></p>
+
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-55-11.png" alt="GIF" width="500" height="400"></p>
 
 - **🌈 Frases motivacionales**: Se muestran al iniciar sesión o completar una actividad.
   
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-55-53.png" alt="GIF" width="500" height="400"></p>
 
 - **😊 Registro del estado emocional**:Selección diaria de emociones mediante iconos o niveles.
   
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-56-57.png" alt="GIF" width="500" height="400"></p>
 
 - **💆 Sugerencias de autocuidado**: Actividades recomendadas cuando se detectan emociones negativas.
-  
-<img src="" alt="GIF" width="300" height="200"></p>
+
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-56-47.png" alt="GIF" width="700" height="600"></p>
 
 - **🔐 Seguridad de la información**: Protección de datos sensibles como credenciales y estados emocionales.
-  
-<img src="" alt="GIF" width="300" height="200"></p>
 
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-58-24.png" alt="GIF" width="500" height="400"></p>
 
 ## 🧭 Funcionalidades principales 🧭
 
 - **Registro e inicio de sesión de usuarios.**
   
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-04%2000-00-42.png" alt="GIF" width="500" height="400"></p>
 
 - **Organización de actividades por importancia y fecha.**
-<img src="" alt="GIF" width="300" height="200"></p>
+
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-54-25.png" alt="GIF" width="500" height="400"></p>
 
 - **Registro de agradecimientos diarios**
   
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-04%2000-00-06.png" alt="GIF" width="500" height="400"></p>
 
 - **Interfaz intuitiva y accesible desde la web.**
   
-<img src="" alt="GIF" width="300" height="200"></p>
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Pagina/Captura%20desde%202026-02-03%2023-59-43.png" alt="GIF" width="1000" height="900"></p>
 
 ## 🧩 Diagramas 🧩
 El proyecto cuenta con diagramas de casos de uso que describen la interacción entre el usuario y el sistema.
 
-<div align="center">
-<img src="">
+
+<div align="center"> 
+
+ <h3>Diagrama UML</h3>
+
+<img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Diagramas/Captura%20desde%202026-02-03%2023-44-47.png">
 </div>
+
+ <h2>Patrones de diseño</h2>
+ <div align="center"> 
+ <h3>Patrón Observer</h3>
+   <img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Diagramas/Captura%20desde%202026-02-03%2023-45-58.png">
+ <h3>Patrón Template Metodh</h3>
+    <img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Diagramas/Captura%20desde%202026-02-03%2023-46-48.png">
+ <h3>Patrón Singletón</h3>
+    <img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Diagramas/Captura%20desde%202026-02-03%2023-47-17.png">
+ <h3>Patrón Active Record</h3>
+    <img src="https://github.com/WagnerBalcazar/Planify-Grupo1/blob/master/Imagenes/Diagramas/Captura%20desde%202026-02-03%2023-48-14.png">
+ </div>
 
 ## 📐 Requerimientos del sistema 📐
 ✔️ **Funcionales**
