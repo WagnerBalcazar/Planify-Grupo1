@@ -3,9 +3,10 @@
 - Aplicación desarrollada como proyecto académico de Diseño de Software.
 - Enfocada en la organización personal, gestión del tiempo y bienestar emocional.
 - Proyecto desarrollado por el equipo BYTS.
-
-# 🌱 Planify
 <div align="center">
+  
+# 🌱 Planify
+
 <a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=Gracias+por+visitar+Planify+%F0%9F%92%9A;Organiza+tu+tiempo+y+cuida+tu+bienestar" height="90px"></a> </div>
 
 <div align="center">
