@@ -19,12 +19,12 @@
 # 📍 Atajos del README 📍
 | TEMA | DESCRIPCIÓN | ATAJO |
 |------|-------------|-------|
-| 💻 **Descripción** | *¿Qué es Planify?* |[ver](https://github.com/Jxel117/PooJuego?tab=readme-ov-file#descripci%C3%B3n-) |
-| ⚙️ **Características** | *Funciones principales del sistema* |[ver]() |
-| 🧭 **Funcionalidades** | *Qué puede hacer el usuario* |[ver]() |
-| 🧩 **Diagramas** | *Casos de uso y diseño* |[ver]() |
-| 📐 **Requerimientos del sistema** | *Reqerimientos funcionales y no funcionales* |[ver]() |
-| ✅ **COLABORADORES** | *Desarrolladores del proyecto* |[ver]() |
+| 💻 **Descripción** | *¿Qué es Planify?* |[ver](https://github.com/WagnerBalcazar/Planify-Grupo1/tree/master?tab=readme-ov-file#descripci%C3%B3n-) |
+| ⚙️ **Características** | *Funciones principales del sistema* |[ver](https://github.com/WagnerBalcazar/Planify-Grupo1/tree/master?tab=readme-ov-file#caracter%C3%ADsticas-%EF%B8%8F) |
+| 🧭 **Funcionalidades** | *Qué puede hacer el usuario* |[ver](https://github.com/WagnerBalcazar/Planify-Grupo1/tree/master?tab=readme-ov-file#-funcionalidades-principales-) |
+| 🧩 **Diagramas** | *Casos de uso y diseño* |[ver](https://github.com/WagnerBalcazar/Planify-Grupo1/tree/master?tab=readme-ov-file#-diagramas-) |
+| 📐 **Requerimientos del sistema** | *Reqerimientos funcionales y no funcionales* |[ver](https://github.com/WagnerBalcazar/Planify-Grupo1/tree/master?tab=readme-ov-file#-requerimientos-del-sistema-) |
+| ✅ **COLABORADORES** | *Desarrolladores del proyecto* |[ver](https://github.com/WagnerBalcazar/Planify-Grupo1/tree/master?tab=readme-ov-file#-desarrolladores) |
 ----
 
 
