@@ -139,5 +139,5 @@ Proyecto desarrollado por el equipo BYTS:
 
 📘 Carrera de Computación – Diseño de Software
 
-📅 Ciclo: 4to “A”
+
 
