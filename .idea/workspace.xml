@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ce38a37-1e04-483c-94c2-8d8a90851bd9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/usuarios/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bienestar/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/bienestar/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bienestar/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bienestar/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bienestar/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bienestar/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/logica.js" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/static/gestion_actividades/logica.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_actividades/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planify/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planify/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planify/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planify/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_actividades/templates/gestion_actividades/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/planify_byts.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/planify_byts.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/static/usuarios/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/usuarios/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/usuarios/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/usuarios/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/usuarios/registro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +138,10 @@
       <workItem from="1769985060541" duration="1079000" />
       <workItem from="1769986174708" duration="86000" />
       <workItem from="1770014493856" duration="1227000" />
-      <workItem from="1770048628712" duration="108000" />
+      <workItem from="1770048628712" duration="2283000" />
+      <workItem from="1770052151076" duration="2541000" />
+      <workItem from="1770171361514" duration="1834000" />
+      <workItem from="1770174089263" duration="14660000" />
     </task>
     <servers />
   </component>

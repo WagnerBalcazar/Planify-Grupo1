@@ -1,20 +1,21 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from usuarios import views as user_views  # <--- Aquí están tus vistas
+from usuarios import views as user_views  # Tus vistas personalizadas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # --- CAMBIO CRÍTICO AQUÍ ---
-    # BORRA la línea de auth_views.LoginView y pon esta:
-    path('login/', user_views.login_usuario, name='login'),
+    # 1. LOGIN (Usamos tu nueva vista 'login_view')
+    path('login/', user_views.login_view, name='login'),
 
-    # Esta de logout está bien, déjala así si quieres
+    # 2. LOGOUT (Usamos la de Django, redirige al login al salir)
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 
-    path('registro/', user_views.registro, name='registro'),
+    # 3. REGISTRO (CORREGIDO: Apunta a tu vista 'registro_view')
+    path('registro/', user_views.registro_view, name='registro'),
 
+    # 4. TUS OTRAS APPS
     path('', include('gestion_actividades.urls')),
     path('bienestar/', include('bienestar.urls')),
 ]

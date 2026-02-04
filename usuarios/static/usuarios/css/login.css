@@ -1,126 +1,293 @@
-/* --- VARIABLES DE COLOR (MENTA PASTEL & DARK) --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
-    --bg-general: #e0f2f1;        /* Menta Pastel Muy Suave */
+    /* Paleta de Colores (Menta) */
+    --bg-gradient-start: #e0f2f1;
+    --bg-gradient-end: #b2dfdb;
+    --primary-color: #26a69a;
+    --primary-hover: #00897b;
     --card-bg: #ffffff;
-    --primary-menta: #4DB6AC;    /* El Verde Menta de los detalles */
     --text-main: #37474f;
-    --text-muted: #78909c;
-    --input-bg: #f5fcfb;
-    --border-color: #cfd8dc;
-}
-
-[data-theme="dark"] {
-    --bg-general: #1a1d1d;        /* Gris muy oscuro verdoso */
-    --card-bg: #262a2b;           /* Tarjeta Dark */
-    --primary-menta: #4DB6AC;
-    --text-main: #eceff1;
     --text-muted: #90a4ae;
-    --input-bg: #2f3435;
-    --border-color: #3f474a;
+
+    /* Inputs */
+    --input-bg: #f7f9f9;
+    --input-border: #eceff1;
+    --input-focus-shadow: rgba(38, 166, 154, 0.2);
+
+    /* Notificaciones */
+    --error-bg: #ffebee;
+    --error-text: #c62828;
+    --error-border: #ffcdd2;
+    --success-bg: #e8f5e9;
+    --success-text: #2e7d32;
+    --success-border: #c8e6c9;
 }
 
-/* --- ESTRUCTURA --- */
-body {
-    background-color: var(--bg-general);
+* {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Segoe UI', sans-serif;
-    transition: all 0.4s ease;
+    padding: 20px;
 }
 
+/* =========================================
+   2. TARJETA PRINCIPAL (ESTILO LOGIN)
+   ========================================= */
 .login-card {
     background-color: var(--card-bg);
-    padding: 45px;
-    border-radius: 30px;
-    width: 90%;
-    max-width: 360px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    padding: 3rem; /* Espacio amplio para que se vea elegante */
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px; /* Ancho ideal para el login */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     text-align: center;
     position: relative;
-    border: 1px solid rgba(255,255,255,0.3);
+    transition: transform 0.3s ease;
 }
 
-/* MARCA BYTS */
+/* Etiqueta "BYTS DEV" */
 .byts-badge {
     position: absolute;
-    top: 25px;
-    right: 30px;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(38, 166, 154, 0.1);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 50px;
     font-size: 0.7rem;
-    font-weight: 800;
-    color: var(--primary-menta);
-    letter-spacing: 2px;
-    opacity: 0.8;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-/* EL ÍCONO DE LA HOJITA */
+/* Logo (Hoja) */
 .logo {
-    font-size: 3.5rem;
-    color: var(--primary-menta);
-    margin-bottom: 15px;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
+.login-card:hover .logo {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Títulos */
 h2 {
-    margin-bottom: 30px;
     color: var(--text-main);
+    margin-bottom: 1.5rem;
     font-weight: 600;
-    letter-spacing: -0.5px;
+    font-size: 1.6rem;
 }
 
-/* FORMULARIO */
-.form-group { margin-bottom: 20px; text-align: left; }
+/* =========================================
+   3. FORMULARIOS E INPUTS
+   ========================================= */
+.form-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
 
-label {
+.form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 0.85rem;
+    margin-bottom: 6px;
     color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 5px;
 }
 
-input {
+/* Estilo general de Inputs */
+.form-group input {
     width: 100%;
-    padding: 14px;
+    padding: 12px 16px;
+    border: 2px solid var(--input-border);
+    border-radius: 12px;
     background-color: var(--input-bg);
-    border: 2px solid var(--border-color);
-    border-radius: 15px;
     color: var(--text-main);
-    box-sizing: border-box;
-    font-size: 1rem;
-    transition: all 0.3s;
-}
-
-input:focus {
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
     outline: none;
-    border-color: var(--primary-menta);
-    background-color: var(--card-bg);
 }
 
-/* BOTÓN */
+.form-group input:focus {
+    background-color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--input-focus-shadow);
+}
+
+/* --- ÍCONOS DENTRO DE LOS INPUTS (SOLO LOGIN) --- */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    padding-right: 45px; /* Espacio para el ícono */
+}
+
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b0bec5;
+    font-size: 1.1rem;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.input-wrapper input:focus + .input-icon {
+    color: var(--primary-color);
+}
+
+.toggle-password {
+    cursor: pointer;
+}
+.toggle-password:hover {
+    color: var(--primary-hover);
+}
+
+/* =========================================
+   4. BOTONES Y LINKS
+   ========================================= */
 .btn-login {
     width: 100%;
-    padding: 15px;
-    background-color: var(--primary-menta);
+    padding: 14px;
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
-    margin-top: 10px;
-    box-shadow: 0 5px 15px rgba(77, 182, 172, 0.2);
-    transition: 0.3s;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(38, 166, 154, 0.3);
 }
 
 .btn-login:hover {
+    background-color: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(77, 182, 172, 0.4);
+    box-shadow: 0 8px 20px rgba(38, 166, 154, 0.4);
 }
 
-.footer-link { margin-top: 25px; font-size: 0.85rem; color: var(--text-muted); }
-.footer-link a { color: var(--primary-menta); text-decoration: none; font-weight: 700; }
+.footer-link {
+    margin-top: 1.8rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
 
-.team-byts { margin-top: 30px; font-size: 0.75rem; color: var(--text-muted); }
-.team-byts b { color: var(--primary-menta); }
+.footer-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-link a:hover {
+    text-decoration: underline;
+}
+
+.team-byts {
+    margin-top: 2rem;
+    padding-top: 15px;
+    border-top: 1px solid #f1f3f4;
+    font-size: 0.75rem;
+    color: #b0bec5;
+    font-weight: 500;
+}
+
+.team-byts b { color: var(--primary-color); }
+
+/* =========================================
+   5. NOTIFICACIONES
+   ========================================= */
+.notificacion {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.notificacion.error {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid var(--error-border);
+}
+
+.notificacion.success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid var(--success-border);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   6. MODO COMPACTO (SOLO PARA REGISTRO)
+   ========================================= */
+/* IMPORTANTE: Esto aprieta todo para que quepa en pantalla sin scroll */
+
+.card-registro {
+    max-width: 400px !important; /* Más angosto */
+    padding: 1.5rem 2rem !important; /* Menos relleno arriba/abajo */
+}
+
+/* Reduce espacio entre cada campo */
+.card-registro .form-group {
+    margin-bottom: 0.7rem !important;
+}
+
+/* Pega el Label al Input */
+.card-registro .form-group label {
+    margin-bottom: 2px !important;
+    font-size: 0.85rem !important;
+}
+
+/* Inputs un poco menos altos */
+.card-registro input {
+    padding: 10px 14px !important;
+}
+
+/* Reduce tamaño del logo y título */
+.card-registro .logo {
+    font-size: 2rem !important;
+    margin-bottom: 5px !important;
+}
+
+.card-registro h2 {
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+}
+
+/* Botón más cerca */
+.card-registro .btn-login {
+    margin-top: 0.8rem !important;
+    padding: 12px !important;
+}
+
+/* Footer más cerca */
+.card-registro .footer-link {
+    margin-top: 1rem !important;
+}

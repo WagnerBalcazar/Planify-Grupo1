@@ -5,28 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro | BYTS</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'usuarios/css/login.css' %}">
 </head>
 <body>
 
-    <div class="login-card">
+    <div class="login-card card-registro">
+
         <span class="byts-badge">BYTS DEV</span>
 
         <div class="logo"><i class="fas fa-leaf"></i></div>
-        <h2>Nueva Cuenta</h2>
+
+        <h2>Crear Cuenta</h2>
 
         <form method="post">
             {% csrf_token %}
+
             {% for field in form %}
             <div class="form-group">
                 <label>{{ field.label }}</label>
-                {{ field }}
-                {% for error in field.errors %}
-                    <small style="color: #e57373; font-size: 0.75rem;">{{ error }}</small>
-                {% endfor %}
+
+                {{ field }} {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div class="error-msg" style="color: #e57373; font-size: 0.8rem; margin-top: 5px; text-align: left;">
+                            <i class="fas fa-exclamation-circle"></i> {{ error }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if field.help_text %}
+                    <small style="display: block; color: #90a4ae; font-size: 0.75rem; margin-top: 2px;">
+                        {{ field.help_text|safe }}
+                    </small>
+                {% endif %}
             </div>
             {% endfor %}
+
             <button type="submit" class="btn-login">Registrarse</button>
         </form>
 

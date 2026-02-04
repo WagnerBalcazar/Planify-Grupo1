@@ -3,7 +3,7 @@ from django.conf import settings
 from django.apps import apps
 
 
-# 1. CLASE PADRE: ACTIVIDAD
+# 1. CLASE : ACTIVIDAD
 class Actividad(models.Model):
     PRIORIDAD_CHOICES = [
         ('ALTA', 'Alta'),
@@ -43,7 +43,7 @@ class Evento(Actividad):
     lugar = models.CharField(max_length=200, blank=True, null=True)
 
 
-# 4. CLASE HIJA: META
+# 4. CLASE META
 class Meta(Actividad):
     # Meta es especial, mantiene su estado interno, pero usaremos 'completada' para el historial
     ESTADO_CHOICES = [

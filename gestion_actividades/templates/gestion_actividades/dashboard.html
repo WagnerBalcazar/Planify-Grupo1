@@ -20,7 +20,8 @@
     <header class="main-header">
         <h1>PLANIFY</h1>
         <div class="header-controls">
-            <span>Hola, <strong>{{ usuario.username }}</strong></span>
+            <span>Hola, <strong>{{ user.first_name|title }} {{ user.last_name|title}}</strong></span>
+
             <button class="theme-toggle-btn" id="btnTema"><i class="fas fa-moon"></i></button>
             <form action="{% url 'logout' %}" method="post" style="display:inline;">
                 {% csrf_token %}
