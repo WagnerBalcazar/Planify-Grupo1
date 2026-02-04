@@ -114,18 +114,29 @@ El proyecto cuenta con diagramas de casos de uso que describen la interacción e
 ## 📐 Requerimientos del sistema 📐
 ✔️ **Funcionales**
 
-- Registro, autenticación y recuperación de contraseña.
-- Gestión completa de tareas, eventos y metas.
-- Registro emocional diario.
-- Sugerencias de autocuidado automáticas.
-- Frases motivacionales contextuales.
+- **RF 01:** El sistema debe permitir al usuario registrarse en la aplicación ingresando correo electrónico, nombre, apellido, contraseña y confirmación de contraseña.
+- **RF 02:** El sistema debe permitir al usuario iniciar sesión con sus credenciales: correo electrónico y contraseña.  
+- **RF 03:** El sistema debe permitir al usuario crear, editar, eliminar y visualizar tareas, eventos y metas en un calendario interactivo.
+- **RF 04:** El sistema debe mostrar al usuario una frase positiva al iniciar sesión y al completar una tarea.
+- **RF 05:** El sistema debe mostrar al usuario las actividades registradas (Tareas, Eventos y Metas) y sus atributos específicos según el tipo: 'Curso' para Tareas, 'Ubicación' para Eventos y 'Nivel de Avance' para Metas.".
+- **RF 06:** El sistema permitirá al usuario darle un check para dar por completado una  tarea, eventos y metas completada. 
+- **RF 07:** El sistema debe permitir al usuario escribir sobre algo por lo que se siente agradecido. 
+- **RF 08:** El sistema debe permitir al usuario registrar diariamente su estado emocional seleccionando de un conjunto predefinido de iconos o niveles.
+- **RF 09:** El sistema debe permitir al usuario visualizar sugerencias de actividades de autocuidado (ej. respirar, caminar, escuchar música) cuando registra emociones negativas.
   
 ✔️ **No funcionales**
 
-- Interfaz intuitiva y amigable.
-- Tiempo de respuesta menor a 4 segundos.
-- Seguridad y cifrado de información.
-- Escalabilidad para futuras mejoras.
+- **RFN 01:** El usuario debe poder navegar de forma intuitiva y amigable por la interfaz, sin requerir conocimientos técnicos.
+- **RFN 02:** El usuario debe poder desplazarse fluidamente entre las diferentes secciones del sistema.
+- **RFN 03:** El usuario nuevo debe poder agendar su primer evento en cinco pasos.
+- **RFN 04:** El sistema debe poder mostrar mensajes claros y comprensibles para confirmar acciones realizadas (por ejemplo, “Evento guardado con éxito”).
+- **RFN 05:** El usuario debe poder acceder a la aplicación desde la versión web 
+- **RFN 06:** El sistema debe poder ejecutar todas las funciones en menos de cuatro segundos para mantener una experiencia fluida.
+- **RFN 07:** El sistema debe poder almacenar de forma encriptada la información confidencial, como la clave y el estado emocional de los usuarios.
+- **RFN 08:** El sistema debe poder autenticar a los usuarios mediante un mecanismo de autenticación básica que proteja el acceso.
+- **RFN 09:** El desarrollador del sistema debe poder agregar nuevas funciones en el futuro (por ejemplo, seguimiento emocional con gráficos o alertas personalizadas).
+- **RFN 10:** El sistema gestionará un catálogo de emociones negativas con retroalimentación y frases motivacionales definidas por el desarrollador.
+- **RFN 11:**
 ----
 ### 🌟 DESARROLLADORES
 Proyecto desarrollado por el equipo BYTS:
